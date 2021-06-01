@@ -1,2 +1,2 @@
 rootProject.name = "Template Application"
-include ':app'
+include(":app")
