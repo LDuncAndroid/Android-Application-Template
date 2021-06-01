@@ -1,10 +1,10 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin("android")
 }
 
 android {
-    compileSdkVersion = 30
+    compileSdkVersion(30)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
@@ -18,8 +18,8 @@ android {
     }
 
     buildTypes {
-        release {
-            minifyEnabled = false
+        getByName("release") {
+            minifyEnabled(false)
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -32,9 +32,10 @@ android {
     }
 }
 
-dependencies {
+val kotlinVersion: String by extra
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     implementation("androidx.core:core-ktx:1.5.0")
     implementation("androidx.appcompat:appcompat:1.3.0")
     implementation("com.google.android.material:material:1.3.0")
